@@ -31,6 +31,6 @@
 
     @include('frontend/includes/footer')
     
- 
+ {{-- close javascreipt --}}
 </body>
 </html>
