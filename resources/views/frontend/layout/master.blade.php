@@ -1,36 +1,33 @@
-        @include('frontend/includes/head')
+{{-- head  --}}
+@include('frontend.includes.head')
 <body class="diag">
     
+<!-- LOADER -->
+   
+@include('frontend.includes.nav')
 
-        @include('frontend/includes/nav')
-           <!--HOME-->
-       
-        @include('frontend/includes/hero')
+        <!--HOME-->
+        @include('frontend.includes.hero')
+
         <!--ABOUT-->
-           
+        @include('frontend.includes.about')  
         
-        @include('frontend/includes/about')
         <!--PORTFOLIO-->
-        
-        
-        @include('frontend/includes/portfolio')
+        @include('frontend.includes.portfolio')
+
         <!-- BLOG -->
-       
-        @include('frontend/includes/blog')
+        @include('frontend.includes.blog')
         
         <!-- CONTACT -->
-        
-        @include('frontend/includes/contact')
-
-    <footer>
-   @include('frontend/includes/footer')
-   
-    </footer>
+        @include('frontend.includes.contact')
+ 
+        <!-- footer -->
+        @include('frontend.includes.footer')
     
 <!-- Javascripts -->
-
-    @include('frontend/includes/footer')
+        @include('frontend.includes.scripts')
     
- {{-- close javascreipt --}}
+    
+ 
 </body>
 </html>
