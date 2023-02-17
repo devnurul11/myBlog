@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class, 'index']);
+Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class, 'index'])->name('front.index');
 
 Route::group(['prefix'=>'admin'], function(){
-    Route::get('/',[App\Http\Controllers\Backend\BackendController::class, 'index']);
+    Route::get('/',[App\Http\Controllers\Backend\BackendController::class, 'index'])->name('back.index');
     
 });
