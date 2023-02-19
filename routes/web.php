@@ -18,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class, 'index'])->name('front.index');
 
     Route::group(['prefix'=>'admin'], function(){
-        Route::get('/',[App\Http\Controllers\Backend\BackendController::class, 'index'])->name('back.index');
+        Route::get('/',[App\Http\Controllers\Backend\BackendController::class, 'index'])->middleware(['auth', 'verified']) ->name('back.index');
         
     });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
