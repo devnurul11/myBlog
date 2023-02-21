@@ -4,21 +4,21 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-md-8">
                             <h4 class="mb-0"> Create List</h4>
                         </div>
-                        <div class="col md-4">
+                        <div class="col md-4 text-end">
                             <a href="{{ route('category.create') }}"><button class="btn btn-primary">Create More Category</button></a>
                         </div>
                     </div>
                     
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped table-bordered table-hover table-active">
+                    <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>SL.</th>
