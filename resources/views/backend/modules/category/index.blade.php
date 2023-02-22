@@ -50,7 +50,7 @@
                                     <a href="{{ route('category.show' , $category->id) }}"><button class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></button></a>
                                     <a href="{{ route('category.edit' , $category->id) }}"><button class="btn btn-warning btn-sm mx-1"><i class="fa-solid fa-edit"></i></button></a>
                                     {!! Form::open(['method'=>'delete', 'route'=>['category.destroy', $category->id]]) !!}
-                                    {!! Form::button('<i class="fa-solid fa-edit"></i>', ['class'=> 'btn btn-danger btn-sm', 'type' =>'submit']) !!}
+                                    {!! Form::button('<i class="fa-solid fa-trash"></i>', ['class'=> 'btn btn-danger btn-sm', 'type' =>'submit']) !!}
                                     {!! Form::close() !!}
                                 </div>
                             </td>

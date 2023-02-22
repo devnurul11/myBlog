@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header ">
-                    <h4 class="mb-0"> Create Category</h4>
+                    <h4 class="mb-0"> Update Category</h4>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -22,6 +22,7 @@
                     {!! Form::model($category,  ['method' => 'put', 'route'=> ['category.update', $category->id]]) !!}
                         @include('backend.modules.category.form')
                     {!! Form::button('Create Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
+                   
 
                     {!! Form::close() !!}
                 </div>
