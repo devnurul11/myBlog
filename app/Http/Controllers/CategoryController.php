@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $category->update($category_data);
 
         session()->flash('cls', 'success');
-        session()->flash('msg', 'Category Update Successfully');
+        session()->flash('msg', 'Category Updated Successfully');
         return redirect()->route('category.index');
     }
     /**
@@ -94,6 +94,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        session()->flash('cls', 'danger');
+        session()->flash('msg', 'Category deleted Successfully');
+        return redirect()->route('category.index');
     }
 }
