@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/',[FrontendController::class, 'index'])->name('front.index');
     Route::group(['prefix'=>'admin'], function(){
         Route::get('/',[BackendController::class, 'index'])->middleware(['auth', 'verified']) ->name('back.index');
         Route::resource('/category', CategoryController::class)->middleware(['auth', 'verified']);
+        Route::resource('/tag', TagController::class)->middleware(['auth', 'verified']);
     });
     //category routes
 
