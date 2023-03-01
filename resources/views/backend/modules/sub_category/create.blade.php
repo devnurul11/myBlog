@@ -1,5 +1,5 @@
 @extends('backend.layout.master')
-@section('page_title', 'Category')
+@section('page_title', 'Sub Category')
 @section('page_sub_title', 'Create')
 
 @section('content')
@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header ">
-                    <h4 class="mb-0"> Create Category</h4>
+                    <h4 class="mb-0"> Create Sub Category</h4>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -19,8 +19,9 @@
                             </ul>
                         </div>
                     @endif
+                    {{ Form::open(['method'=>'post', 'route'=>'sub-category.store']) }}
                     @include('backend.modules.sub_category.form');
-                    {!! Form::button('Create Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
+                    {!! Form::button('Create Sub Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
 
                     {!! Form::close() !!}
                 </div>

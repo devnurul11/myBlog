@@ -1,5 +1,5 @@
 @extends('backend.layout.master')
-@section('page_title', 'Category')
+@section('page_title', 'Sub Category')
 @section('page_sub_title', 'Update')
 
 @section('content')
@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header ">
-                    <h4 class="mb-0"> Update Category</h4>
+                    <h4 class="mb-0"> Update Sub Category</h4>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -19,9 +19,9 @@
                             </ul>
                         </div>
                     @endif
-                    {!! Form::model($category,  ['method' => 'put', 'route'=> ['category.update', $category->id]]) !!}
-                        @include('backend.modules.category.form')
-                    {!! Form::button('Create Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
+                    {!! Form::model($subCategory,  ['method' => 'put', 'route'=> ['sub-category.update', $subCategory->id]]) !!}
+                        @include('backend.modules.sub_category.form')
+                    {!! Form::button('Update Sub Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
                    
 
                     {!! Form::close() !!}

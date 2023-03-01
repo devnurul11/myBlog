@@ -1,5 +1,5 @@
 @extends('backend.layout.master')
-@section('page_title', 'Category Details')
+@section('page_title', 'Sub Category Details')
 @section('page_sub_title', '')
 
 @section('content')
@@ -9,10 +9,10 @@
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-md-8">
-                            <h4 class="mb-0"> Category Details</h4>
+                            <h4 class="mb-0"> Sub Category Details</h4>
                         </div>
                         <div class="col md-4 text-end">
-                            <a href="{{ route('category.index') }}"><button class="btn btn-primary">Back ot Category</button></a>
+                            <a href="{{ route('category.index') }}"><button class="btn btn-primary">Back ot Sub Category</button></a>
                         </div>
                     </div>
                     
@@ -21,32 +21,36 @@
                     <table class="table table-striped table-bordered table-hover">
                         <tbody>
                             <tr>
-                                <td>Category ID</td>
-                                <td>{{ $category->id }}</td>
+                                <td>Sub Category ID</td>
+                                <td>{{ $subCategory->id }}</td>
                             </tr>
                             <tr>
-                                <td>Category Name</td>
-                                <td>{{ $category->name }}</td>
+                                <td>Sub Category Name</td>
+                                <td>{{ $subCategory->name }}</td>
                             </tr>
                             <tr>
-                                <td>Category Slug</td>
-                                <td>{{ $category->slug }}</td>
+                                <td>Mother Category Name</td>
+                                <td>{{ $subCategory->category->name }}</td>
                             </tr>
                             <tr>
-                                <td>Category Status</td>
-                                <td>{{ $category->status==1? 'Active':'Inactive'}}</td>
+                                <td>Sub Category Slug</td>
+                                <td>{{ $subCategory->slug }}</td>
                             </tr>
                             <tr>
-                                <td>Category Order By</td>
-                                <td>{{ $category->order_by }}</td>
+                                <td>Sub Category Status</td>
+                                <td>{{ $subCategory->status==1? 'Active':'Inactive'}}</td>
                             </tr>
                             <tr>
-                                <td>Category Created at</td>
-                                <td>{{ $category->created_at->toDateTimeString() }}</td>
+                                <td>Sub Category Order By</td>
+                                <td>{{ $subCategory->order_by }}</td>
                             </tr>
                             <tr>
-                                <td>Category Updated at</td>
-                                <td>{{ $category->created_at != $category->updated_at ?$category->updated_at->toDateTimeString(): 'Not Updated'}}</td>
+                                <td>Sub Category Created at</td>
+                                <td>{{ $subCategory->created_at->toDateTimeString() }}</td>
+                            </tr>
+                            <tr>
+                                <td>Sub Category Updated at</td>
+                                <td>{{ $subCategory->created_at != $subCategory->updated_at ?$subCategory->updated_at->toDateTimeString(): 'Not Updated'}}</td>
                             </tr>
                         </tbody>
 

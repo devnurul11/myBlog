@@ -1,3 +1,4 @@
+                    {!! Form::open(['method'=>'post', 'route'=>'category.store']) !!}
                     {!! Form::label('name', 'Name') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter category name']) !!}
                     {!! Form::label('slug', 'Slug') !!}
