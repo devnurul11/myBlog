@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -15,7 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-         //
+       // $categories = Category::orderBy('order_by')->get();
+        //return view('backend.modules.category.index', compact('categories'));
     }
 
     /**
@@ -23,7 +26,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('name', 'id');
+        $sub_categories = SubCategory::pluck('name', 'id');
+        return view('backend.modules.post.create', compact('categories', 'sub_categories'));
     }
 
     /**
