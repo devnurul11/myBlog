@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\BackendController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\TagController;
+use App\Http\Controllers\Backend\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/',[FrontendController::class, 'index'])->name('front.index');
         Route::resource('/category', CategoryController::class)->middleware(['auth', 'verified']);
         Route::resource('/sub-category', SubCategoryController ::class)->middleware(['auth', 'verified']);
         Route::resource('/tag', TagController::class)->middleware(['auth', 'verified']);
+        Route::resource('/post', PostController::class)->middleware(['auth', 'verified']);
     });
     //category routes
 
