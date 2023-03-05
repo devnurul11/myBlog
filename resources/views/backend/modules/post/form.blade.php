@@ -12,9 +12,7 @@
                     <div class="row">
                      <div class="col-lg-6">
                         {!! Form::label('category_id', 'Select Paraent category') !!}
-                        {!! Form::select('category_id', $categories, null, [
-                        'class' => 'form-select',
-                        'placeholder' => 'Select Paraent category',
+                        {!! Form::select('category_id', $categories, null, ['id'=>'category_id','class' => 'form-select','placeholder' => 'Select Paraent category',
                     ]) !!} 
                     </div>   
                      <div class="col-lg-6">
@@ -30,7 +28,7 @@
                        <script>
                             $('#category_id').on('change', function () {
                                 let category_id = $(this).val();
-                                console.log('category_id');
+                                console.log(category_id);
                             } )
                        </script>
                    @endpush
