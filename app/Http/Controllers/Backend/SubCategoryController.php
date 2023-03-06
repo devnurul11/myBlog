@@ -107,7 +107,7 @@ class SubCategoryController extends Controller
     }
 
     public function getSubCategoryByCategoryId($id){
-        $sub_categories = SubCategory::where('category_id', $id)->get();
-       return($sub_categories);
+        $sub_categories = SubCategory::select('id', 'name')->where('category_id', $id)->get();
+       return response()->json($sub_categories);
     }
 }

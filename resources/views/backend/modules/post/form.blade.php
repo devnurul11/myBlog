@@ -28,7 +28,11 @@
                        <script>
                             $('#category_id').on('change', function () {
                                 let category_id = $(this).val();
-                                console.log(category_id);
+                                let sub_categories;
+                                axios.get(window.location.origin+'admin/get-subCategory/'+category_id).then(res=>{
+                                    sub_categories = res.data;
+                                    console.log(sub_categories);
+                                })
                             } )
                        </script>
                    @endpush
