@@ -27,7 +27,7 @@ Route::get('/',[FrontendController::class, 'index'])->name('front.index');
         Route::get('/',[BackendController::class, 'index'])->middleware(['auth', 'verified']) ->name('back.index');
         Route::resource('/category', CategoryController::class)->middleware(['auth', 'verified']);
 
-        Route::get('get-subCategory/{id}', [App\Http\Controllers\Backend\SubCategoryController::class, 'getSubCategoryByCategoryId']);
+        Route::get('/get-subCategory/{id}', [App\Http\Controllers\Backend\SubCategoryController::class, 'getSubCategoryByCategoryId']);
 
         Route::resource('/sub-category', SubCategoryController ::class)->middleware(['auth', 'verified']);
         Route::resource('/tag', TagController::class)->middleware(['auth', 'verified']);

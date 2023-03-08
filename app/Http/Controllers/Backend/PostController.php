@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\SubCategory;
@@ -27,8 +28,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        $sub_categories = SubCategory::pluck('name', 'id');
-        return view('backend.modules.post.create', compact('categories', 'sub_categories'));
+        $tags = Tag::pluck('name', 'id');
+        return view('backend.modules.post.create', compact('categories', 'tags'));
     }
 
     /**

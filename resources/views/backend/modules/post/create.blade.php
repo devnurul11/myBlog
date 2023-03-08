@@ -31,7 +31,7 @@
     </div>
     @push('customjs')
         <script>
-            $('#name').on('input', function() {
+            $('#title').on('input', function() {
                 let name = $(this).val();
                 let slug = name.replaceAll(' ', '-')
                 $('#slug').val(slug.toLowerCase());

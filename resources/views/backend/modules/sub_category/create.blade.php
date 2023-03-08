@@ -20,7 +20,7 @@
                         </div>
                     @endif
                     {{ Form::open(['method'=>'post', 'route'=>'sub-category.store']) }}
-                    @include('backend.modules.sub_category.form');
+                    @include('backend.modules.sub_category.form')
                     {!! Form::button('Create Sub Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
 
                     {!! Form::close() !!}
