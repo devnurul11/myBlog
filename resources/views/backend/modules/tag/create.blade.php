@@ -19,7 +19,10 @@
                             </ul>
                         </div>
                     @endif
-                    @include('backend.modules.tag.form');
+
+                    {!! Form::open(['method'=>'post', 'route'=>'tag.store']) !!}
+
+                    @include('backend.modules.tag.form')
                     {!! Form::button('Create Tag', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
 
                     {!! Form::close() !!}

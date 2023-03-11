@@ -35,7 +35,21 @@
                         'placeholder' => 'Description',
                     ]) !!}
 
+                {!! Form::label('tag_id', 'Select tags',['class'=>'mt-2']) !!}
+                    <div class="row">
+                         @foreach ($tags as $tag)
+                           <div class="col-md-3">
+                            {!! Form::checkbox('tag_id', $tag->id, false) !!}  <span>{{ $tag->name }}</span>
+                           </div>
+                                
 
+                             @endforeach                       
+                    </div> 
+                    {!! Form::label('photo', 'Feature Image',['class'=>'mt-2']) !!}
+                    {!! Form::file('photo', ['class'=>'form-control']) !!}
+               
+                  
+                
 
 
                     @push('customCss')
@@ -55,8 +69,8 @@
                             ClassicEditor
                                 .create(document.querySelector('#editor'))
                                 .catch(error => {
-                                    console.error(error);
-                                });
+                                    console.error(error)
+                                })
 
 
 
@@ -75,7 +89,7 @@
                                         $('#sub_category_id').append(
                                             `<option value="${sub_category.id}" > ${sub_category.name} </option>`)
                                     ))
-                                    console.log(sub_categories);
+                                    console.log(sub_categories)
                                 })
                             })
 

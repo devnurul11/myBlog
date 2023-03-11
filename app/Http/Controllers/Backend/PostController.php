@@ -27,8 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name', 'id');
-        $tags = Tag::pluck('name', 'id');
+        $categories = Category::where('status', 1)->pluck('name', 'id');
+        $tags = Tag::where('status', 1)->select('name', 'id')->get();
         return view('backend.modules.post.create', compact('categories', 'tags'));
     }
 

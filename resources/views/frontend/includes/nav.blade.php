@@ -11,6 +11,7 @@
                 <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
                 <li><a href="#blog" class="smoothScroll">Blog</a></li>
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                <li><a href="{{ route('login') }}" class="smoothScroll">Login</a></li>
             </ul>
         </div>
     </div>

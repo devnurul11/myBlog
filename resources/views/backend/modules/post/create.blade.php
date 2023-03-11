@@ -20,7 +20,7 @@
                         </div>
                     @endif
                     {!! Form::open(['method'=>'post', 'route'=>'post.store']) !!}
-                    @include('backend.modules.post.form');
+                    @include('backend.modules.post.form')
 
                     {!! Form::button('Create Post', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
 
