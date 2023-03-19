@@ -6,10 +6,13 @@ use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\SubCategory;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\PostCreateRequest;
 
 class PostController extends Controller
 {
@@ -35,9 +38,27 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostCreateRequest $request)
     {
-        //
+      $post_data = $request->except(['slug', 'tag_ids', 'photo']);
+      $post_data['slug'] = Str::slug($request->input('slug'));
+      $post_data['user_id'] = Auth::user()->id;
+      $post_data['is_approved'] =1;
+
+      if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $name = Str::slug($request->input('slug'));
+            $height = 600;
+            $width = 1000;
+            $thamb_height = 150;
+            $thumb_widht =150;
+
+            $path = 'image/post/original';
+            $thmb_path = 'image/post/thumbnail';
+
+      }
+
+      dd($post_data);
     }
 
     /**
@@ -45,7 +66,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        
     }
 
     /**
