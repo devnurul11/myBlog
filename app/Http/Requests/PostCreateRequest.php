@@ -27,7 +27,7 @@ class PostCreateRequest extends FormRequest
             'status' => 'required',
             'category_id' => 'required',
             'sub_category_id' => 'required',
-            'editor' => 'required',
+            'description' => 'required',
             'photo' => 'required',
             'tag_ids' => 'required',
             

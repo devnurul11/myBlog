@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PhotoUploadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\PostCreateRequest;
@@ -53,8 +54,15 @@ class PostController extends Controller
             $thamb_height = 150;
             $thumb_widht =150;
 
-            $path = 'image/post/original';
-            $thmb_path = 'image/post/thumbnail';
+            $path = 'image/post/original/';
+            $thmb_path = 'image/post/thumbnail/';
+
+           $post_data['photo'] = PhotoUploadController::imageUpload($name, $height, $width, $path, $file);
+           PhotoUploadController::imageUpload($name, $thamb_height, $thumb_widht, $thmb_path, $file);
+
+
+           $post = Post::create($post_data);
+
 
       }
 

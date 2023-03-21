@@ -28,9 +28,9 @@
                             </select>
                         </div>
                     </div>
-                    {!! Form::label('editor', 'Write Description') !!}
-                    {!! Form::textarea('editor', null, [
-                        'id' => 'editor',
+                    {!! Form::label('description', 'Write Description') !!}
+                    {!! Form::textarea('description', null, [
+                        'id' => 'description',
                         'class' => 'form-control',
                         'placeholder' => 'Description',
                     ]) !!}
@@ -67,7 +67,7 @@
                     @push('customjs')
                         <script>
                             ClassicEditor
-                                .create(document.querySelector('#editor'))
+                                .create(document.querySelector('#description'))
                                 .catch(error => {
                                     console.error(error)
                                 })
