@@ -59,9 +59,7 @@
                                             <a href="{{ route('category.edit', $category->id) }}"><button
                                                     class="btn btn-warning btn-sm mx-1"><i
                                                         class="fa-solid fa-edit"></i></button></a>
-                                            {!! Form::open([
-                                                'method' => 'delete',
-                                                'id' => 'deleteForm-' . $category->id,
+                                            {!! Form::open(['method' => 'delete','id' => 'deleteForm-'. $category->id,
                                                 'route' => ['category.destroy', $category->id],
                                             ]) !!}
                                             {!! Form::button('<i class="fa-solid fa-trash"></i>', [
@@ -98,8 +96,9 @@
     @push('customjs')
         <script>
             $('.delete').on('click', function() {
+             
                 let id = $(this).attr('data-id')
-
+               
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -110,7 +109,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        $('#deleteForm-' + id).submit();
+                        $('#deleteForm-'+ id).submit();
                     }
                 })
 
