@@ -61,13 +61,12 @@
                                             <a href="{{ route('sub-category.edit', $sub_category->id) }}"><button
                                                     class="btn btn-warning btn-sm mx-1"><i
                                                         class="fa-solid fa-edit"></i></button></a>
-                                            {!! Form::open(['method' => 'delete','id'=>'deleteForm-'.$sub_category->id, 'route' => ['sub-category.destroy', $sub_category->id]]) !!}
-                                            {!! Form::button('<i class="fa-solid fa-trash"></i>', [
-                                                'class' => 'btn btn-danger btn-sm delete',
-                                                'type' => 'button',
-                                                'data-id' => $sub_category->id,
-                                            ]) !!}
-                                            {!! Form::close() !!}
+                                          
+                                        <form action="{{ route('sub-category.destroy', $sub_category->id) }}" method="POST" class="delete">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                                        </form>
                                         </div>
                                     </td>
 

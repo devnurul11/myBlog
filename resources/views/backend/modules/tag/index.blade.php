@@ -59,13 +59,12 @@
                                             <a href="{{ route('tag.edit', $tag->id) }}"><button
                                                     class="btn btn-warning btn-sm mx-1"><i
                                                         class="fa-solid fa-edit"></i></button></a>
-                                            {!! Form::open(['method' => 'delete','id'=>'deleteForm-'.$tag->id, 'route' => ['tag.destroy', $tag->id]]) !!}
-                                            {!! Form::button('<i class="fa-solid fa-trash"></i>', [
-                                                'class' => 'btn btn-danger btn-sm delete',
-                                                'type' => 'button',
-                                                'data-id' => $tag->id,
-                                            ]) !!}
-                                            {!! Form::close() !!}
+                                           
+                                        <form action="{{ route('tag.destroy', $tag->id) }}" method="POST" class="delete">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                                        </form>
                                         </div>
                                     </td>
 

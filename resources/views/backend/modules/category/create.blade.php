@@ -19,7 +19,7 @@
                             </ul>
                         </div>
                     @endif
-                    @include('backend.modules.category.form');
+                    @include('backend.modules.category.form')
                     {!! Form::button('Create Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
 
                     {!! Form::close() !!}

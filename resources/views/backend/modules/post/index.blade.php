@@ -12,8 +12,8 @@
                             <h4 class="mb-0"> Create List</h4>
                         </div>
                         <div class="col md-4 text-end">
-                            <a href="{{ route('category.create') }}"><button class="btn btn-primary">Create More
-                                    Category</button></a>
+                            <a href="{{ route('post.create') }}"><button class="btn btn-primary">Create New
+                                    Post</button></a>
                         </div>
                     </div>
 
@@ -41,31 +41,29 @@
                         @php
                             $sl = 1;
                         @endphp
-                        @foreach ($categories as $category)
+                        @foreach ($post as $post)
                             <tbody>
                                 <tr>
                                     <td>{{ $sl++ }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td>{{ $category->slug }}</td>
-                                    <td>{{ $category->order_by }}</td>
-                                    <td>{{ $category->status == 1 ? 'Active' : 'Inactive' }}</td>
-                                    <td>{{ $category->created_at->toDateTimeString() }}</td>
-                                    <td>{{ $category->created_at != $category->updated_at ? $category->updated_at->toDateTimeString() : 'Not Updated' }}
+                                    <td>{{ $post->name }}</td>
+                                    <td>{{ $post->slug }}</td>
+                                    <td>{{ $post->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                    <td>{{ $post->created_at->toDateTimeString() }}</td>
+                                    <td>{{ $post->created_at != $post->updated_at ? $post->updated_at->toDateTimeString() : 'Not Updated' }}
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('category.show', $category->id) }}"><button
+                                            <a href="{{ route('post.show', $post->id) }}"><button
                                                     class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></button></a>
-                                            <a href="{{ route('category.edit', $category->id) }}"><button
+                                            <a href="{{ route('post.edit', $post->id) }}"><button
                                                     class="btn btn-warning btn-sm mx-1"><i
                                                         class="fa-solid fa-edit"></i></button></a>
-                                            {!! Form::open(['method' => 'delete','id'=>'deleteForm-'.$category->id, 'route' => ['category.destroy', $category->id]]) !!}
-                                            {!! Form::button('<i class="fa-solid fa-trash"></i>', [
-                                                'class' => 'btn btn-danger btn-sm delete',
-                                                'type' => 'button',
-                                                'data-id' => $category->id,
-                                            ]) !!}
-                                            {!! Form::close() !!}
+                                            
+                                        <form action="{{ route('post.destroy', $post->id) }}" method="POST" class="delete">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                                        </form>
                                         </div>
                                     </td>
 

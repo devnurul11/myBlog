@@ -22,8 +22,8 @@ class PostController extends Controller
      */
     public function index()
     {
-       // $categories = Category::orderBy('order_by')->get();
-        //return view('backend.modules.category.index', compact('categories'));
+       $post = Post::with('category', 'sub_category', 'user', 'tag')->latest()->paginate(20);
+       return view('backend.modules.post.index', compact('post'));
     }
 
     /**
