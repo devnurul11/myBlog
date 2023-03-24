@@ -1,5 +1,5 @@
                     {!! Form::label('title', 'Title') !!}
-                    {!! Form::text('title', null, ['id' => 'title', 'class' => 'form-control', 'placeholder' => 'Enter post title']) !!}
+                    {!! Form::text('title', null, ['id' => 'title', 'class' => 'form-control ', 'placeholder' => 'Enter post title']) !!}
                     {!! Form::label('slug', 'Slug') !!}
                     {!! Form::text('slug', null, ['id' => 'slug', 'class' => 'form-control', 'placeholder' => 'Post Status']) !!}
 
