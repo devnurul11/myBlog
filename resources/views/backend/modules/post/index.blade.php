@@ -106,7 +106,8 @@
                 let img = $(this).attr('src');
                 console.log(img)
             })
-
+//my false commit will be done
         </script>
     @endpush
 @endsection
+
