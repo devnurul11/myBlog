@@ -33,6 +33,7 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Sub Category</th>
+                                <th>Tag</th>
                                 <th>Status</th>
                                 <th>Is Aprrove</th>
                                 <th>Author</th>
@@ -46,12 +47,32 @@
                         @endphp
                         @foreach ($posts as $post)
                             <tbody>
-                                <tr>
+                                <tr class="align-middle">
                                     <td>{{ $sl++ }}</td>
-                                    <td class="image_size img-thumbnail"><img data-src="{{ url('image/post/original/'.$post->photo) }}" src="{{ url('image/post/thumbnail/'.$post->photo) }}" alt="{{ $post->title }}"> </td>
+                                    <td class="image_size img-thumbnail"><img
+                                            data-src="{{ url('image/post/original/' . $post->photo) }}"
+                                            src="{{ url('image/post/thumbnail/' . $post->photo) }}"
+                                            alt="{{ $post->title }}">
+                                    </td>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->category?->name }}</td>
                                     <td>{{ $post->sub_category?->name }}</td>
+
+
+                                    <td>
+                                        @php
+                                            $colors = array('success', 'warning', 'danger', 'info')
+                                        @endphp
+                                        @foreach ($post->tag as $tag)
+
+                                            <button class="btn btn-sm btn-{{ ($colors[random_int(0, 3)]) }}">{{ $tag->name }}</button>
+                                          
+                                        
+                                        @endforeach
+
+                                    </td>
+
+
                                     <td>{{ $post->status == 1 ? 'Active' : 'Inactive' }}</td>
                                     <td>{{ $post->is_approved == 1 ? 'Approved' : 'Not Approved' }}</td>
                                     <td>{{ $post->user?->name }}</td>
@@ -65,12 +86,14 @@
                                             <a href="{{ route('post.edit', $post->id) }}"><button
                                                     class="btn btn-warning btn-sm mx-1"><i
                                                         class="fa-solid fa-edit"></i></button></a>
-                                            
-                                        <form action="{{ route('post.destroy', $post->id) }}" method="POST" class="delete">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
-                                        </form>
+
+                                            <form action="{{ route('post.destroy', $post->id) }}" method="POST"
+                                                class="delete">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button type="submit" class="btn btn-danger delete btn-sm"><i
+                                                        class="fa-solid fa-trash"></i></button>
+                                            </form>
                                         </div>
                                     </td>
 
@@ -85,6 +108,7 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Sub Category</th>
+                                <th>Tag</th>
                                 <th>Status</th>
                                 <th>Is Aprrove</th>
                                 <th>Author</th>
@@ -95,19 +119,22 @@
                         </tfoot>
 
                     </table>
+                    {{ $posts->links() }}
                 </div>
             </div>
         </div>
     </div>
     @push('customjs')
         <script>
-                
+            $('.image_size').each(function() {
+                let img = $(this).attr('data-src');
+                console.log(img); // logging the value of 'data-src' attribute for each image
+            });
+
             $('.image_size').on('click', function() {
-                let img = $(this).attr('src');
-                console.log(img)
-            })
-//my false commit will be done
+                let img = $(this).attr('data-src');
+                console.log(img); // logging the value of 'data-src' attribute of clicked image
+            });
         </script>
     @endpush
 @endsection
-

@@ -1,13 +1,13 @@
 @extends('backend.layout.master')
-@section('page_title', 'Category')
-@section('page_sub_title', 'Update')
+@section('page_title', 'Edit Post')
+@section('page_sub_title', 'edit')
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header ">
-                    <h4 class="mb-0"> Update Category</h4>
+                    <h4 class="mb-0"> Edit Post</h4>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -19,10 +19,11 @@
                             </ul>
                         </div>
                     @endif
-                    {!! Form::model($category,  ['method' => 'put', 'route'=> ['category.update', $category->id]]) !!}
-                        @include('backend.modules.category.form')
-                    {!! Form::button('Create Category', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
-                   
+                    
+                    {!! Form::model($post,  ['method' => 'put', 'route'=> ['post.update', $post->id]]) !!}
+                    @include('backend.modules.post.form')
+
+                    {!! Form::button('Update Now', ['type' => 'submit', 'class' => 'btn btn-primary mt-3']) !!}
 
                     {!! Form::close() !!}
                 </div>
@@ -31,7 +32,7 @@
     </div>
     @push('customjs')
         <script>
-            $('#name').on('input', function() {
+            $('#title').on('input', function() {
                 let name = $(this).val();
                 let slug = name.replaceAll(' ', '-')
                 $('#slug').val(slug.toLowerCase());

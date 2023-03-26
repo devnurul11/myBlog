@@ -2,4 +2,6 @@ td.image_size img{
     width: 75px !important;
     cursor: pointer;
 }
-
+img{
+    max-width: 100%;
+}
