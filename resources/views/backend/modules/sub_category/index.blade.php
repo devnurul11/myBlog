@@ -65,7 +65,7 @@
                                         <form action="{{ route('sub-category.destroy', $sub_category->id) }}" method="POST" class="delete">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                                            <button type="submit" class="btn btn-danger btn-sm delete"><i class="fa-solid fa-trash"></i></button>
                                         </form>
                                         </div>
                                     </td>
