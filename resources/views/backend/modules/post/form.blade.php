@@ -23,8 +23,8 @@
                                 'class' => 'form-select',
                                 'placeholder' => 'Select Sub Category',
                             ]) !!} --}}
-                            <select name="sub_category_id" id="sub_category_id" class="list-group form-select">
-                                <option selected="selected"> Select Sub Category</option>
+                            <select name="sub_category_id" id="sub_category_id" class="list-group form-select px-3">
+                                <option  selected="selected"> Select Sub Category</option>
                             </select>
                         </div>
                     </div>
@@ -77,10 +77,16 @@
 
 
                             $('#category_id').on('change', function() {
-                                let category_id = $(this).val();
-                                let sub_categories;
-                                $('#sub_category_id').empty()
-                                $('#sub_category_id').append('<option selected="selected"> Select Sub Category</option>')
+                                 let category_id = $('#category_id').val();
+                                get_sub_category(category_id);
+                             
+                            })
+                            const get_sub_category= (category_id)=>{
+                                  
+                               
+                                let sub_categories_element = $('#sub_category_id');
+                                sub_categories_element.empty()
+                                sub_categories_element.append('<option selected="selected"> Select Sub Category</option>')
 
 
                                 axios.get(window.location.origin + '/admin/get-subCategory/' + category_id).then(res => {
@@ -92,8 +98,7 @@
                                     ))
                                     console.log(sub_categories)
                                 })
-                            })
-
+                            }
 
                         </script>
                     @endpush

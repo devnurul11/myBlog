@@ -104,6 +104,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        session()->flash('cls', 'danger');
+        session()->flash('msg', 'Post deleted Successfully');
+        return redirect()->route('post.index');
     }
 }
