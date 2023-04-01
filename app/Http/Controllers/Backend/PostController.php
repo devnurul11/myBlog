@@ -68,7 +68,7 @@ class PostController extends Controller
 
       }
 
-      dd($post_data);
+      
     }
 
     /**
@@ -85,10 +85,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+       
         $categories = Category::where('status', 1)->pluck('name', 'id');
+        $sub_category = SubCategory::where('status', 1)->where('category_id', $post->category_id)->pluck('name', 'id');
         $tags = Tag::where('status', 1)->select('name', 'id')->get();
 
-        return view('backend.modules.post.edit', compact('post', 'tags', 'categories'));
+        return view('backend.modules.post.edit', compact('post', 'tags', 'categories', 'sub_category'));
     }
 
     /**

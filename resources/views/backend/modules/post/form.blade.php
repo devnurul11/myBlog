@@ -17,6 +17,7 @@
                                 'placeholder' => 'Select Paraent category',
                             ]) !!}
                         </div>
+                        
                         <div class="col-lg-6">
                             {!! Form::label('sub_category_id', 'Select Sub Category') !!}
                             {{-- {!! Form::select('sub_category_id', $sub_categories, null, [
