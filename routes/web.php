@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     
 
 });
+//author routes
 
 // main route
 
